@@ -1,0 +1,28 @@
+.inscriptionForm{
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.sidebar{
+flex: 2;
+}
+.section{
+flex: 3;
+}
+.fade-enter-active{
+    transition: 2s;
+}
+.fade-leave-active{
+    transition: 0.5s;
+}
+.fade-leave-to, .fade-enter{
+    opacity: 0;
+    transform:  translateY(50px);
+}
+button{
+    margin-right: 10px;
+}
+button a{
+    color: white;
+}

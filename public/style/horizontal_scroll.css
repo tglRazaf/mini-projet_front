@@ -1,0 +1,39 @@
+    ::-webkit-scrollbar{
+        display: none;
+    }
+    .container{
+        width: 100vh;
+        height: 100vw;
+        transform: rotate(-90deg) translateX(-100vh);
+        transform-origin: top left;
+        overflow-x: hidden;
+    }
+    #about{
+        width: 300vw;
+        display: flex;
+        flex-direction: row;
+        transform: rotate(90deg) translateY(-100vh);
+        transform-origin: top left;
+        overflow: hidden;
+    }
+    .project-card{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+        border-bottom: 5px solid white;
+    }
+
+    .project-card:nth-child(1){
+        background-color: teal;
+    }
+    .project-card:nth-child(2){
+        background-color: tomato;
+    }
+    .project-card:nth-child(3){
+        background-color: yellow;
+    }
+    h1{
+        font-size: 100px;
+    }

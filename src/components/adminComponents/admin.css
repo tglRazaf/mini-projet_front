@@ -1,0 +1,9 @@
+.container .section {
+    margin: /*top*/ 1% /*right*/ 0% /*bottom*/ 5% /*left*/ 17%;
+  }
+  .section .section-title {
+    padding: 5px 0px 0px 25px;
+    border-bottom: 1px solid;
+    border-bottom-left-radius: 50px;
+  }
+  
