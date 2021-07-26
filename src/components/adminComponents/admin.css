@@ -1,9 +1,42 @@
 .container .section {
     margin: /*top*/ 1% /*right*/ 0% /*bottom*/ 5% /*left*/ 17%;
-  }
+    animation: fading 1.5s;
+}
   .section .section-title {
     padding: 5px 0px 0px 25px;
     border-bottom: 1px solid;
     border-bottom-left-radius: 50px;
   }
-  
+
+.branche-container{
+  margin: /*top*/ 10% /*right*/ 0% /*bottom*/ 5% /*left*/ 17%;
+}
+.addFiliere-conatiner, .apropos-container{
+  margin: /*top*/ 7% /*right*/ 0% /*bottom*/ 5% /*left*/ 17%;
+}
+.addFiliere-conatiner div{
+  margin: 10px 0px;
+}
+.form-section{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+@keyframes fading {
+  0%{
+    opacity: 0;
+    transform: translateX(-50px) scale(0.98);
+  }
+  100%{
+    opacity: 1;
+    transform: translateX(0px) scale(1.002);
+  }
+}
+
+.columns{
+  flex-wrap: wrap;
+}
+.card-footer{
+  padding: 10px 0px 0px 0px;
+}

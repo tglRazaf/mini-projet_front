@@ -41,10 +41,30 @@ const routes = [
         component: () => import('@/components/adminComponents/Section1.vue')
       },
       {
+        path: '/admin/apropos',
+        name: 'a propos',
+        component: () => import('@/components/adminComponents/apropos.vue')
+      },
+      {
         path: '/admin/section/:id',
         name: 'section2',
         component: () => import('@/components/adminComponents/Section2.vue')
-      }
+      },
+      {
+        path: '/admin/branche/create',
+        name: 'createBranche',
+        component: () => import('@/components/adminComponents/createBranche.vue')
+      },
+      {
+        path: '/admin/section3/:nom/:id',
+        name: 'section3',
+        component: () => import('@/components/adminComponents/Section3.vue')
+      },
+      {
+        path: '/admin/filiere/add',
+        name: 'addFiliere',
+        component: () => import('@/components/adminComponents/addFiliere.vue')
+      },
     ]
   },
   {

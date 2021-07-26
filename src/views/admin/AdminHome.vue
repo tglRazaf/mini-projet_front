@@ -19,14 +19,16 @@
             <a href="/admin/section/tertiaire" class="navbar-item">Tertiaires</a>
           </div>
         </a>
-        <router-link to="/admin/section/2" class="navbar-item">A propos</router-link>
+        <router-link to="/admin/apropos" class="navbar-item">A propos</router-link>
       </div>
     </nav>
     </div>
     <div class="container">
       <Sidebar/>
       <div class="main"> 
-        <router-view></router-view>
+        <transition name="bouncing" mode="out-in" appear>
+          <router-view></router-view>
+        </transition>
       </div>
     </div>
   </div>
@@ -51,5 +53,15 @@ export default {
 };
 </script>
 <style src="../../../public/style/bulma.min.css"></style>
-<style lang="css" scoped>
+<style lang="css">
+  .bouncing-enter-active {
+    transition: 2s;
+  }
+  .bouncing-leave-active {
+    transition: 0.5s;
+  }
+  .bouncing-leave-to, .bouncing-enter {
+    opacity: 0;
+    transform: translateX(50px);
+  }
 </style>

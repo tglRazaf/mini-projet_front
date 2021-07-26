@@ -1,24 +1,21 @@
 <template >
     <div class="section">
         <div class="section-title">
-          <h1 class="title">Section {{$route.params.id}}</h1>
+            <h1 class="title">Section {{$route.params.id}}</h1>
         </div>
         <br/>
-        <h2 class="subtitle is-3">Niveau 1</h2>
-            <tableView :etudes="filieres"/>
-        <hr>
-        <h2 class="subtitle is-3">Niveau 2</h2>
-            <tableView :etudes="filieres"/>
-        <hr>
-        <h2 class="subtitle is-3">Niveau 3</h2>
-            <tableView :etudes="filieres"/>
-        <hr>
-        <h2 class="subtitle is-3">Niveau 4</h2>
-            <tableView :etudes="filieres"/>
-        <hr>
-        <h2 class="subtitle is-3">Niveau 5</h2>
-            <tableView :etudes="filieres"/>
+        <tableView :etudes="filieres" :niveau="1">
+        </tableView>
+        <tableView :etudes="filieres" :niveau="2">
+        </tableView>
+        <tableView :etudes="filieres" :niveau="3">
+        </tableView>
+        <tableView :etudes="filieres" :niveau="4">
+        </tableView>
+        <tableView :etudes="filieres" :niveau="5">
+        </tableView>
     </div>
+        
 </template>
 
 <script>
@@ -30,7 +27,13 @@ export default {
     data() {
         return {
             routeId: this.$route.params.id,
-            filieres: ''
+            filieres: []
+        }
+    },
+    methods: {
+        getFiliereParAnnee: function (annee) {
+            axios.get(`http://localhost:7000/filiere/lists/${this.routeId}/${annee}`)
+                .then(res => res.data)
         }
     },
     mounted() {

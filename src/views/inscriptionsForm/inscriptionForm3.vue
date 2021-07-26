@@ -68,22 +68,21 @@ export default {
     mounted() {
         console.log(this.getEleveFromStore);
     },
-    methods: {
-        
+    methods: {  
         _post: function(data){
-        try {
-            axios({
-            method: 'POST',
-            headers: {
-                'Accept': '*/*',
-                'Content-Type': 'application/json'
-            },
-            url: `http://localhost:7000/inscription`,
-            data: data
-            }).then(response => console.log(response.body))
-        } catch (error) {
-            console.log(error)
-        }
+            try {
+                axios({
+                method: 'POST',
+                headers: {
+                    'Accept': '*/*',
+                    'Content-Type': 'application/json'
+                },
+                url: `http://localhost:7000/inscription`,
+                data: data
+                }).then(response => console.log(response.body))
+            } catch (error) {
+                console.log(error)
+            }
         },
         setNewStoreValue(){
             this.$store.commit('mutationFree', this.eleve);

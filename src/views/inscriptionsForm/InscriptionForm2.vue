@@ -34,7 +34,6 @@
                     Suivant
                 </router-link>
             </button>
-            {{getEleveFromStore.nom}}
         </div>
     </div>
 </template>
@@ -59,9 +58,6 @@ export default {
         getEleveFromStore(){
             return this.$store.state.eleve;
         }
-    },
-    mounted() {
-        console.log(this.getEleveFromStore);
     },
     methods: {
         setNewStoreValue(){

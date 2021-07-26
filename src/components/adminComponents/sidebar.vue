@@ -10,16 +10,16 @@
     <div class="sidebar-content">
       <ul class="menu-list has-text-white">
         <li>
-          <a href="#histoire"><i class="fa fa-edit"></i>Notes</a>
+          <router-link to="#histoire"><i class="fa fa-edit"></i>Notes</router-link>
         </li>
         <li>
-          <a href="#"><i class="fa fa-money-o"></i>Payements</a>
+          <router-link to="#"><i class="fa fa-money-o"></i>Payements</router-link>
         </li>
-        <li><a href="#">Absences</a></li>
+        <li><router-link to="/admin/filiere/add">Ajouter des filieres</router-link></li>
         <li>
-          <a href="#"><i class="fa fa-rank"></i>Créer une branche</a>
+          <router-link to="/admin/branche/create">Créer une branche</router-link>
         </li>
-        <li><a href="#">Concours</a></li>
+        <li><router-link to="/admin/apropos">A propos</router-link></li>
       </ul>
     </div>
   </div>

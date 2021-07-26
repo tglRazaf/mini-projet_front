@@ -18,15 +18,15 @@
                     <label for="age">Date de naissance</label>
                     <input class="input" type="date" name="date_de_naissance" id="date_de_naissance" v-model="eleve.date_de_naissance">
                 </div>
-                <div class="field">
+                <div class="field" >
                     <label for="filiere">Filière : </label>
                     <select name="filiere" id="filiere" class="input select" v-model="eleve.filiere">
-                        <optgroup label="Informatique" >
+                        <optgroup label="Informatique">
                             <option value="isaia">ISAIA</option>
                             <option value="esiia">ESIIA</option>
                             <option value="imticia">IMTICIA</option>
                             <option value="igglia">IGGLIA</option>
-                        </optgroup>
+                        </optgroup>                        
                         <optgroup label="Tertiaire">
                             <option value="emp">EMP</option>
                             <option value="fic">FIC</option>
@@ -82,22 +82,20 @@ export default {
                 filiere: '',
                 niveau: 0,
                 past_ecole: '',
-            }
+            },
         }
     },
     computed: {
         getEleveFromStore(){
             return this.$store.state.eleve;
-        }
-    },
-    mounted() {
-        console.log(this.getEleveFromStore);
+        },
     },
     methods: {
         setNewStoreValue(){
             this.$store.commit('mutationOne', this.eleve)
-        }
+        },
     },
+
 }
 </script>
 
