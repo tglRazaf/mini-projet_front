@@ -17,7 +17,7 @@
                         </div>
                     </div>
                     <div class="card-footer buttons">
-                        <button type="submit" class="button is-success is-small" @click="_submit">Valider</button>                        
+                        <a href="/admin/branche/create" type="submit" class="button is-success is-small" @click="_submit">Valider</a>                        
                     </div>
                 </div>
                 <br>                
@@ -25,6 +25,7 @@
             <button type="button" class="button is-link is-small" @click.prevent="_addHtmlField">ajouter</button>
         </div>
         <h2>Tsy adino le manisy fanalavana nom branche ahh</h2>
+        <h1>sy date de la creation</h1>
     </div>
 </template>
 

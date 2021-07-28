@@ -13,10 +13,10 @@
           <a href="#" class="navbar-link">
             Filière
           </a>
-          <div class="navbar-dropdown">
-            <a href="/admin/section/informatique" class="navbar-item">Informatiques</a>
-            <a href="/admin/section/industrielle" class="navbar-item">Industrielles</a>
-            <a href="/admin/section/tertiaire" class="navbar-item">Tertiaires</a>
+          <div class="navbar-dropdown"> 
+            <div v-for="(branche, index) in branches" :key="index">
+              <a :href="'/admin/section/'+branche.nom_branche" class="navbar-item">{{branche.nom_branche.toUpperCase()}}</a>
+            </div>
           </div>
         </a>
         <router-link to="/admin/apropos" class="navbar-item">A propos</router-link>
@@ -37,6 +37,7 @@
 
 
 <script>
+import axios from 'axios'
 import Sidebar from '@/components/adminComponents/sidebar.vue'
 
 export default {
@@ -47,7 +48,14 @@ export default {
   data() {
     return {
       showModal: false,
+      branches: []
     }
+  },
+  mounted() {
+    axios.get(`http://localhost:7000/all/brancheFilieres`)
+      .then(res => {
+          this.branches= res.data
+      })
   },
 
 };

@@ -13,7 +13,7 @@
           <router-link to="#histoire"><i class="fa fa-edit"></i>Notes</router-link>
         </li>
         <li>
-          <router-link to="#"><i class="fa fa-money-o"></i>Payements</router-link>
+          <router-link to="/admin/payement"><i class="fa fa-money-o"></i>Payements</router-link>
         </li>
         <li><router-link to="/admin/filiere/add">Ajouter des filieres</router-link></li>
         <li>

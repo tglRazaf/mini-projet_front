@@ -25,7 +25,6 @@ export default {
     mounted() {
         axios.get(`http://localhost:7000/all/brancheFilieres`)
             .then(res => {
-                console.log(res.data)
                 this.branches= res.data
             })
     },

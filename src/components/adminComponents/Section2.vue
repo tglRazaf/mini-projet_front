@@ -1,7 +1,7 @@
 <template >
     <div class="section">
         <div class="section-title">
-            <h1 class="title">Section {{$route.params.id}}</h1>
+            <h1 class="title">Branche {{$route.params.id}}</h1>
         </div>
         <br/>
         <tableView :etudes="filieres" :niveau="1">

@@ -1,4 +1,4 @@
-<template>
+'<template>
     <div class="inscriptionForm">
         <div class="sidebar">
             <img src="../../assets/XOsX.gif" alt="animation">
@@ -18,29 +18,7 @@
                     <label for="age">Date de naissance</label>
                     <input class="input" type="date" name="date_de_naissance" id="date_de_naissance" v-model="eleve.date_de_naissance">
                 </div>
-                <div class="field" >
-                    <label for="filiere">Filière : </label>
-                    <select name="filiere" id="filiere" class="input select" v-model="eleve.filiere">
-                        <optgroup label="Informatique">
-                            <option value="isaia">ISAIA</option>
-                            <option value="esiia">ESIIA</option>
-                            <option value="imticia">IMTICIA</option>
-                            <option value="igglia">IGGLIA</option>
-                        </optgroup>                        
-                        <optgroup label="Tertiaire">
-                            <option value="emp">EMP</option>
-                            <option value="fic">FIC</option>
-                            <option value="teh">TEH</option>
-                            <option value="dtga">DTGA</option>
-                        </optgroup>
-                        <optgroup label="Industrielle">
-                            <option value="emii">EMII</option>
-                            <option value="icmp">ICMP</option>
-                            <option value="gca">GCA</option>
-                            <option value="bio">BIO</option>
-                        </optgroup>
-                    </select>
-                </div>
+                <filiereFormField :eleve="eleve"/>
                 <div class="field">
                     <label for="niveau">Niveau </label>
                     <select name="niveau" id="niveau" class="input" v-model="eleve.niveau">
@@ -69,12 +47,13 @@
 
 <script>
 import Store from '@/store/index.js'
-
+import filiereFormField from '@/components/filiereFormField.vue'
 export default {
     sore: Store,
     name: 'inscriptionForm1',
+    components: {filiereFormField},
     data() {
-        return {
+        return{
             eleve:  {
                 nom: '',
                 prenom: '',

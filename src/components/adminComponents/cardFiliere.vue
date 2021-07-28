@@ -1,24 +1,5 @@
 <template>
-    <div>
-        <div class="modal">
-            <div class="modal-content">
-                <div class="modal-card">
-                    <div class="modal-card-head ">
-                        <h2 class="modal-card-title">texte</h2>
-                        <div class="delete" @click="_toggleModal"></div>
-                    </div>
-                    <div class="modal-card-body">
-                        <div class="field">
-                            <label for="nomFiliere">Nom du filière</label>
-                            <input class="input is-small" type="text" name="nomFiliere" placeholder="Entrer le nom du filière" v-model="nameToAdd">
-                        </div>
-                    </div>
-                    <div class="modal-card-foot">
-                        <a href="#" class="button is-small is-success" @click="_addNewFiliere">Ajouter</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="card-filiere">
         <div class="card">
             <div class="card-header">
                 <h2 class="subtitle">{{nom}}</h2>
@@ -26,12 +7,17 @@
             <div>
             <div class="card-body" v-for="(branche, index) in branches" :key="index">
                 <h2>{{branche.nom_filiere}}</h2>
-                <a href="#" class="button is-small is-danger is-outlined" @click="_removeFiliere(branche.idFiliere)"><i class="fa fa-trash"></i></a>
+                <a :href="'/admin/filiere/add'" class="button is-small is-danger is-outlined" @click.prevent="_removeFiliere(branche.idFiliere)"><i class="fa fa-trash"></i></a>
             </div>
             </div>
             <div class="card-footer">
-                <div class="buttons">
-                    <button class="button is-small is-success" @click="_toggleModal">Ajouter</button>
+                <div class="field is-grouped is-centered">
+                    <div class="control">
+                        <input class="input is-small" type="text" placeholder="ajouter un filiere" v-model="filiereToAdd">
+                    </div>
+                    <div class="control">
+                        <a href="/admin/filiere/add" class="button is-small is-success" @click.prevent="_addNewFiliere(nom)">Ajouter</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -48,19 +34,35 @@ export default {
     data() {
         return {
             branches: [],
-            nameToAdd: ''
+            nameToAdd: '',
+            filiereToAdd: ''
         }
     },
     methods: {
-        _toggleModal(){
-            document.querySelector('.modal').classList.toggle('is-active')
-        },
-        _addNewFiliere(){
-            console.log(this.nom);
+        _addNewFiliere(nom){
+            axios.get(`http://localhost:7000/filiere/lists/${nom}`)
+                .then(res => {
+                    axios({
+                        method: 'POST',
+                        url: 'http://localhost:7000/add/filiere',
+                        data:{
+                            nom_filiere: this.filiereToAdd,
+                            idBranche: res.data[0].idBranche
+                        }
+                    }).then(response => console.log(response))
+                })
         },
         _removeFiliere(id){
             let ok = confirm('vous voulez vraiment supprimer')
-            if (ok) console.log(id);
+            if(ok){
+                axios({
+                    method: 'POST',
+                    url: 'http://localhost:7000/delete/filiere',
+                    data:{
+                        idFiliere: id
+                    }
+                    }).then(response => console.log(response))
+            }
         }
     },
     mounted() {
@@ -82,5 +84,10 @@ export default {
     .card-body{
         display: flex;
         justify-content: space-between;
+    }
+    .field.is-grouped.is-centered{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 </style>

@@ -65,6 +65,11 @@ const routes = [
         name: 'addFiliere',
         component: () => import('@/components/adminComponents/addFiliere.vue')
       },
+      {
+        path: '/admin/payement',
+        name: 'payement',
+        component: () => import('@/components/adminComponents/payements/payement.vue')
+      },
     ]
   },
   {
