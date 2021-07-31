@@ -29,7 +29,7 @@ export default {
                         <optgroup label="${res.data[i].nom_branche}" id="${res.data[i].idBranche}">
                         </optgroup>
                     ` 
-                    axios.get(`http://localhost:7000/filiere/lists/${res.data[i].nom_branche}`)
+                    axios.get(`http://localhost:7000/filiere/lists/utile/${res.data[i].nom_branche}`)
                         .then(response => {
                             for (let j = 0; j < response.data.length; j++) {
                                 console.log(response.data[j]);

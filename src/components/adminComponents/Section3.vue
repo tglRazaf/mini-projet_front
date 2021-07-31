@@ -12,6 +12,7 @@
                     <td>Prénom</td>
                     <td>Payement</td>
                     <td>Téléphone</td>
+                    <td>actions</td>
                 </tr>
             </thead>
             <tbody v-for="(eleve, index) in eleves" :key="index">
@@ -19,8 +20,12 @@
                     <td>{{eleve.matricule}}</td>
                     <td>{{eleve.nom}}</td>
                     <td>{{eleve.prenom}}</td>
-                    <td></td>
+                    <td>{{eleve.nombre_payement}}</td>
                     <td>{{eleve.tel_eleve}}/{{eleve.tel_eleve2}}</td>
+                    <td>
+                        <a href="#" class="button is-small is-link">Editert</a>
+                    </td>
+                    <td><router-link class="button is-small is-link" :to="'/admin/notes/'+eleve.matricule">notes</router-link></td>
                 </tr>
             </tbody>
         </table>
@@ -41,7 +46,6 @@ export default {
     mounted() {
         axios.get(`http://localhost:7000/filiere/count/${this.nom}/${this.annee}`)
             .then(res => {
-                console.log(res.data);
                 this.eleves= res.data
             })
     },

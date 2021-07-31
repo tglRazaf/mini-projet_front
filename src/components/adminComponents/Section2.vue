@@ -4,15 +4,16 @@
             <h1 class="title">Branche {{$route.params.id}}</h1>
         </div>
         <br/>
-        <tableView :etudes="filieres" :niveau="1">
+        <tableView :etudes="filieres[0]" :niveau="1" id="1">
+            <!-- le niveau n'est pas necessaire pour cette route mais pour la section 3 -->
         </tableView>
-        <tableView :etudes="filieres" :niveau="2">
+        <tableView :etudes="filieres[1]" :niveau="2" id="2">
         </tableView>
-        <tableView :etudes="filieres" :niveau="3">
+        <tableView :etudes="filieres[2]" :niveau="3" id="3">
         </tableView>
-        <tableView :etudes="filieres" :niveau="4">
+        <tableView :etudes="filieres[3]" :niveau="4" id="4">
         </tableView>
-        <tableView :etudes="filieres" :niveau="5">
+        <tableView :etudes="filieres[4]" :niveau="5" id="5">
         </tableView>
     </div>
         
@@ -27,20 +28,21 @@ export default {
     data() {
         return {
             routeId: this.$route.params.id,
-            filieres: []
-        }
-    },
-    methods: {
-        getFiliereParAnnee: function (annee) {
-            axios.get(`http://localhost:7000/filiere/lists/${this.routeId}/${annee}`)
-                .then(res => res.data)
+            filieres: [],
+
         }
     },
     mounted() {
-        axios.get(`http://localhost:7000/filiere/lists/${this.routeId}`)
-            .then(res => {
-                this.filieres= res.data
-            })
+        let tableView = document.querySelectorAll('.tableView')
+        for (let i = 0; i < tableView.length; i++) {
+            axios.get(`http://localhost:7000/filiere/lists/${this.routeId}/${tableView[i].id}`)
+                .then(res => {
+                    console.log(res.data);
+                    this.filieres.push(res.data)
+                })
+        }
+        
+
     },
 }
 </script>

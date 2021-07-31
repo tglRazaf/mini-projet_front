@@ -11,7 +11,7 @@
 .branche-container{
   margin: /*top*/ 10% /*right*/ 0% /*bottom*/ 5% /*left*/ 17%;
 }
-.addFiliere-conatiner, .apropos-container{
+.addFiliere-conatiner, .apropos-container, .notes{
   margin: /*top*/ 7% /*right*/ 0% /*bottom*/ 5% /*left*/ 17%;
 }
 .addFiliere-conatiner div{

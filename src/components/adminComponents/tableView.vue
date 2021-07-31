@@ -13,7 +13,7 @@
                 <tr>
                     <td>{{etude.idFiliere}}</td>
                     <td>{{etude.nom_filiere}}</td>
-                    <td :nombre="getFiliersCount(etude.nom, niveau)"></td>
+                    <td>{{etude.nombre_eleve}}</td>
                     <td><router-link :class="cls()" class="button is-small" :to="'/admin/section3/'+etude.nom_filiere+'/'+niveau">Voir plus</router-link></td>
                 </tr>
             </tbody>
@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+
 export default {
     name: 'tableView',
     props: {
@@ -36,12 +36,6 @@ export default {
         }
     },
     methods: {
-        getFiliersCount: function(nom, annee){
-            axios.get(`http://localhost:7000/filiere/count/${nom}/${annee}`)
-            .then(res => {
-                return res.data
-            })
-        },
         cls(){
             let r = ''
             switch (this.niveau) {
@@ -67,10 +61,10 @@ export default {
         }       
     },
     mounted() {
-        axios.get(`http://localhost:7000/filiere/count/isaia/2`)
-            .then(res => {
-                console.log(res.data);
-            })
+        // axios.get(`http://localhost:7000/filiere/count/isaia/2`)
+        //     .then(res => {
+        //         console.log(res.data);
+        //     })
     },
 }
 </script>

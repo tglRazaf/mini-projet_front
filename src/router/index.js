@@ -70,6 +70,11 @@ const routes = [
         name: 'payement',
         component: () => import('@/components/adminComponents/payements/payement.vue')
       },
+      {
+        path: '/admin/notes/:id',
+        name: 'notes',
+        component: () => import('@/components/adminComponents/notes/note.vue')
+      },
     ]
   },
   {

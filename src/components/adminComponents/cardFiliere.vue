@@ -40,7 +40,7 @@ export default {
     },
     methods: {
         _addNewFiliere(nom){
-            axios.get(`http://localhost:7000/filiere/lists/${nom}`)
+            axios.get(`http://localhost:7000/filiere/lists/utile/${nom}`)
                 .then(res => {
                     axios({
                         method: 'POST',
@@ -66,7 +66,7 @@ export default {
         }
     },
     mounted() {
-        axios.get(`http://localhost:7000/filiere/lists/${this.nom}`)
+        axios.get(`http://localhost:7000/filiere/lists/utile/${this.nom}`)
             .then(res => {
                 this.branches= res.data
             })
